@@ -1,0 +1,39 @@
+# Gradle files
+.gradle/
+build/
+*/build/
+
+# Local configuration files
+local.properties
+*.iml
+.idea/
+*.hprof
+
+# Android Studio / JetBrains
+captures/
+.externalNativeBuild
+.cxx/
+*.log
+
+# Kotlin/Java
+*.class
+*.jar
+*.war
+*.ear
+
+# Generated files
+gen/
+out/
+
+# Mac / Linux / Windows OS files
+.DS_Store
+Thumbs.db
+
+# Kotlin specific
+*.kotlin_module
+
+# Jetpack Compose previews
+*.png
+
+# Others
+*.keystore
