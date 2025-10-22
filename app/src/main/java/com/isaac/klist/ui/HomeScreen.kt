@@ -21,16 +21,6 @@ fun HomeScreen(navController: NavController) {
         modifier = Modifier
             .fillMaxSize()
     ) {
-        Column(
-            modifier = Modifier
-                .fillMaxSize()
-                .background(Color(0xFFEFEFEF))
-                .padding(16.dp)
-        ) {
-            Text("Main content goes here")
-            Spacer(Modifier.height(600.dp))
-        }
-
         Button(
             onClick = { navController.navigate("newList") },
             modifier = Modifier

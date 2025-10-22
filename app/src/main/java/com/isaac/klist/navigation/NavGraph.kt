@@ -14,6 +14,6 @@ fun MyApp() {
         startDestination = "home"
     ) {
         composable ("home") { HomeScreen(navController) }
-        composable ("newList") { NewList() }
+        composable ("newList") { NewList(navController) }
     }
 }
