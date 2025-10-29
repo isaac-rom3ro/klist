@@ -22,12 +22,12 @@ import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
 
+import com.isaac.klist.data.ListEntity
+
 @Composable
 fun HomeScreen(navController: NavController, viewModel: ListViewModel = viewModel()) {
-    // Local state to store the lists
-    var lists by remember { mutableStateOf(listOf<com.isaac.klist.data.ListEntity>()) }
+    var lists by remember { mutableStateOf(listOf<ListEntity>()) }
 
-    // Load lists when this screen appears
     LaunchedEffect(Unit) {
         viewModel.getAllLists { fetchedLists ->
             lists = fetchedLists
@@ -39,9 +39,9 @@ fun HomeScreen(navController: NavController, viewModel: ListViewModel = viewMode
             Text("Minhas Listas")
             Spacer(modifier = Modifier.height(16.dp))
 
-            for (item in lists) {
+            for (list in lists) {
                 Text(
-                    text = item.name,
+                    text = list.name,
                     modifier = Modifier
                         .fillMaxWidth()
                         .padding(8.dp)

@@ -14,5 +14,5 @@ interface ListDao {
     suspend fun delete(listEntity: ListEntity)
 
     @Query("SELECT * FROM list")
-    suspend fun getAllLists(): kotlin.collections.List<ListEntity>
+    suspend fun getAllLists(): List<ListEntity>
 }

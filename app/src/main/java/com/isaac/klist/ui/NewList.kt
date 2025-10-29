@@ -32,7 +32,6 @@ fun NewList(navController : NavController, viewModel: ListViewModel = viewModel(
             .fillMaxSize()
             .background(Color(0xFFEFEFEF))
     ) {
-        // Main content (TextField) at the top
         Column(
             modifier = Modifier
                 .fillMaxWidth()
@@ -46,7 +45,6 @@ fun NewList(navController : NavController, viewModel: ListViewModel = viewModel(
             )
         }
 
-        // Buttons at the bottom
         Row(
             modifier = Modifier
                 .fillMaxWidth()

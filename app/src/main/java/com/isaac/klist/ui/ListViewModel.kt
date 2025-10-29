@@ -5,20 +5,23 @@ import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.viewModelScope
 import com.isaac.klist.data.DatabaseInstance
 import kotlinx.coroutines.launch
+import java.util.Date
+import com.isaac.klist.data.ListEntity
+
 
 class ListViewModel(application: Application) : AndroidViewModel(application) {
     private val dao = DatabaseInstance.getDatabase(application).listDao()
 
     fun addList(name: String) {
         viewModelScope.launch {
-            dao.insert(com.isaac.klist.data.ListEntity(name = name, createdAt = java.util.Date(), updatedAt = java.util.Date()))
+            dao.insert(ListEntity(name = name, createdAt = Date(), updatedAt = Date()))
         }
     }
 
-    fun getAllLists(callback: (List<com.isaac.klist.data.ListEntity>) -> Unit) {
+    fun getAllLists(callback: (List<ListEntity>) -> Unit) {
         viewModelScope.launch {
-            val tasks = dao.getAllLists()
-            callback(tasks)
+            val lists = dao.getAllLists()
+            callback(lists)
         }
     }
 }
