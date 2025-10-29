@@ -5,7 +5,7 @@ import androidx.room.PrimaryKey
 import java.util.Date
 
 @Entity(tableName = "list")
-data class List (
+data class ListEntity (
     @PrimaryKey(autoGenerate = true)
     val id: Int = 0,
     val name: String,

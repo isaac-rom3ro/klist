@@ -11,11 +11,11 @@ class ListViewModel(application: Application) : AndroidViewModel(application) {
 
     fun addList(name: String) {
         viewModelScope.launch {
-            dao.insert(com.isaac.klist.data.List(name = name, createdAt = java.util.Date(), updatedAt = java.util.Date()))
+            dao.insert(com.isaac.klist.data.ListEntity(name = name, createdAt = java.util.Date(), updatedAt = java.util.Date()))
         }
     }
 
-    fun getAllLists(callback: (List<com.isaac.klist.data.List>) -> Unit) {
+    fun getAllLists(callback: (List<com.isaac.klist.data.ListEntity>) -> Unit) {
         viewModelScope.launch {
             val tasks = dao.getAllLists()
             callback(tasks)

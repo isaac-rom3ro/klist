@@ -20,10 +20,11 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
+import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
 
 @Composable
-fun NewList(navController : NavController) {
+fun NewList(navController : NavController, viewModel: ListViewModel = viewModel()) {
     var name by remember { mutableStateOf("") }
 
     Box(
@@ -57,7 +58,13 @@ fun NewList(navController : NavController) {
                 Text("Voltar")
             }
 
-            Button(onClick = { /* TODO: add action */ }) {
+            Button(onClick = {
+                if (name.isNotBlank()) {
+                    viewModel.addList(name)
+                    name = ""
+                    navController.navigate("home")
+                }
+            }) {
                 Text("Adicionar")
             }
         }

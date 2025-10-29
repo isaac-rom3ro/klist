@@ -5,14 +5,14 @@ import androidx.room.*
 @Dao
 interface ListDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insert(list: List)
+    suspend fun insert(listEntity: ListEntity)
 
     @Update
-    suspend fun update(list: List)
+    suspend fun update(listEntity: ListEntity)
 
     @Delete
-    suspend fun delete(list: List)
+    suspend fun delete(listEntity: ListEntity)
 
     @Query("SELECT * FROM list")
-    suspend fun getAllLists(): kotlin.collections.List<List>
+    suspend fun getAllLists(): kotlin.collections.List<ListEntity>
 }
